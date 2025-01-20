@@ -114,7 +114,7 @@
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
 
-        .nav-item:hover .description {
+        .department.active .description {
             display: block;
             opacity: 1;
             transform: translateY(-10px);
@@ -172,17 +172,17 @@
         </header>
         <nav>
             <ul>
-                <li class="nav-item department">
+                <li class="nav-item department" onclick="toggleDescription(this)">
                     DRM
                     <img src="https://cdn.discordapp.com/attachments/1298217831250530304/1330839044711780393/image.png?ex=678f6ff2&is=678e1e72&hm=92509302289f7ac40cb4aac3257c369124d272d55e177a4f3809e1dac315e0fb&" alt="DRM Department">
                     <div class="description">Добро пожаловать в отдел исследований и медицины, где наука сочетается с технологиями для создания будущего здоровья. Команда ученых и врачей работает вместе для решения самых сложных медицинских проблем и разработки передовых методов диагностики и лечения.</div>
                 </li>
-                <li class="nav-item department">
+                <li class="nav-item department" onclick="toggleDescription(this)">
                     ARD
                     <img src="https://cdn.discordapp.com/attachments/1330250868309885071/1330837470287233085/image.png?ex=678f6e7a&is=678e1cfa&hm=12960cf3799c58672c2dc2683873fe991121a0bf81b0de77dc988f3950f7e2f1&" alt="ARD Department">
                     <div class="description">Команда высококвалифицированных и непоколебимых защитников, готовых стать стеной надежной безопасности в любой ситуации. Их доблесть, профессионализм и преданность делу безопасности делают их непревзойденными в своем деле.</div>
                 </li>
-                <li class="nav-item department">
+                <li class="nav-item department" onclick="toggleDescription(this)">
                     SED
                     <img src="https://cdn.discordapp.com/attachments/1298217831250530304/1330838863937277982/image.png?ex=678f6fc6&is=678e1e46&hm=94a9faa0a8aa50f57bd0d6cfc16dde241704eccd8c4e0575a1f2c2c7bc6321dd&" alt="SED Department">
                     <div class="description">Это сверхсекретное подразделение, специализирующееся на сборе, анализе и эксплуатации аномальных данных и технологий. Отдел функционирует на стыке передовых исследований в области искусственного интеллекта, робототехники и паранормальных явлений, стремясь получить конкурентное преимущество в мире корпоративного шпионажа и разведки.</div>
@@ -191,8 +191,29 @@
         </nav>
     </div>
     <script>
-        // JavaScript is not necessary for this specific hover effect, 
-        // but you can add additional interactivity or enhancements here if needed.
+        function toggleDescription(element) {
+            // Получаем описание, связанное с выбранным элементом
+            const description = element.querySelector('.description');
+            
+            // Проверяем текущее состояние видимости описания
+            if (description.style.display === 'block') {
+                // Если описание было видимым, скрываем его
+                description.style.opacity = '0';
+                description.style.transform = 'translateY(0)';
+                setTimeout(() => {
+                    description.style.display = 'none';
+                    element.classList.remove('active');
+                }, 500); // Время анимации должно совпадать с transition в CSS
+            } else {
+                // Если описание было скрытым, показываем его
+                description.style.display = 'block';
+                setTimeout(() => {
+                    description.style.opacity = '1';
+                    description.style.transform = 'translateY(-10px)';
+                }, 0); // Время задержки для отображения
+                element.classList.add('active');
+            }
+        }
     </script>
 </body>
 </html>
