@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Андерсон Роботикс</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+        
+        /* Основные стили */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: url('https://cdn.discordapp.com/attachments/1298217831250530304/1330833098220503050/1674742150_bogatyr-club-p-fon-dlya-saita-fon-2.png?ex=678f6a68&is=678e18e8&hm=ac408778e102c8a13f9f02b917806465b73e403b5e9154f31ea5f36aaca7c962&') no-repeat center center fixed;
+            background-size: cover;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header h1 {
+            font-family: 'Oswald', sans-serif;
+            margin-top: 0;
+            font-size: 3em;
+            border-bottom: 2px solid #ff6f61;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        header p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            animation: slideIn 2s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            animation: fadeIn 2.5s;
+            margin-top: -20px; /* Поднять отделы выше */
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.5em;
+            font-family: 'Oswald', sans-serif;
+            position: relative;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover {
+            color: #ff6f61;
+        }
+
+        .description {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid #ff6f61;
+            padding: 20px;
+            z-index: 10;
+            font-size: 0.9em;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .nav-item:hover .description {
+            display: block;
+            opacity: 1;
+            transform: translateY(-10px);
+        }
+
+        .department {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #ff6f61;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .department img {
+            width: 400px; /* Увеличить размер изображений */
+            height: 300px; /* Увеличить размер изображений */
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .nav-item + .department {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <header>
+            <h1>Андерсон Роботикс</h1>
+            <p>"Андерсон Роботикс" – паратехнологическая фирма, специализирующаяся на продаже аномальных роботов, андроидов, носителей искусственного интеллекта, компьютерных программ и кибернетических приспособлений. Хотя "Андерсон Роботикс" существует с 1990 года, фирма впервые привлекла внимание Фонда в 2007 году, после захвата SCP-1360 в ходе рейда на склад незаконно сбываемых паратехнологий в Сиэтле. С этого первого контакта "Андерсон Роботикс" были признаны основным распространителем паратехнологической робототехники.</p>
+        </header>
+        <nav>
+            <ul>
+                <li class="nav-item department">
+                    DRM
+                    <img src="https://cdn.discordapp.com/attachments/1298217831250530304/1330839044711780393/image.png?ex=678f6ff2&is=678e1e72&hm=92509302289f7ac40cb4aac3257c369124d272d55e177a4f3809e1dac315e0fb&" alt="DRM Department">
+                    <div class="description">Добро пожаловать в отдел исследований и медицины, где наука сочетается с технологиями для создания будущего здоровья. Команда ученых и врачей работает вместе для решения самых сложных медицинских проблем и разработки передовых методов диагностики и лечения.</div>
+                </li>
+                <li class="nav-item department">
+                    ARD
+                    <img src="https://cdn.discordapp.com/attachments/1330250868309885071/1330837470287233085/image.png?ex=678f6e7a&is=678e1cfa&hm=12960cf3799c58672c2dc2683873fe991121a0bf81b0de77dc988f3950f7e2f1&" alt="ARD Department">
+                    <div class="description">Команда высококвалифицированных и непоколебимых защитников, готовых стать стеной надежной безопасности в любой ситуации. Их доблесть, профессионализм и преданность делу безопасности делают их непревзойденными в своем деле.</div>
+                </li>
+                <li class="nav-item department">
+                    SED
+                    <img src="https://cdn.discordapp.com/attachments/1298217831250530304/1330838863937277982/image.png?ex=678f6fc6&is=678e1e46&hm=94a9faa0a8aa50f57bd0d6cfc16dde241704eccd8c4e0575a1f2c2c7bc6321dd&" alt="SED Department">
+                    <div class="description">Это сверхсекретное подразделение, специализирующееся на сборе, анализе и эксплуатации аномальных данных и технологий. Отдел функционирует на стыке передовых исследований в области искусственного интеллекта, робототехники и паранормальных явлений, стремясь получить конкурентное преимущество в мире корпоративного шпионажа и разведки.</div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        // JavaScript is not necessary for this specific hover effect, 
+        // but you can add additional interactivity or enhancements here if needed.
+    </script>
+</body>
+</html>
