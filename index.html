@@ -73,7 +73,8 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
             animation: fadeIn 2.5s;
             margin-top: -20px; /* Поднять отделы выше */
         }
@@ -86,6 +87,9 @@
             position: relative;
             cursor: pointer;
             transition: color 0.3s;
+            width: calc(100% - 40px);
+            max-width: 400px;
+            margin: 10px;
         }
 
         .nav-item:hover {
@@ -127,14 +131,35 @@
         }
 
         .department img {
-            width: 400px; /* Увеличить размер изображений */
-            height: 300px; /* Увеличить размер изображений */
+            width: 100%; /* Увеличить размер изображений */
+            max-width: 400px;
+            height: auto; /* Увеличить размер изображений */
             border-radius: 10px;
             margin-top: 10px;
         }
 
         .nav-item + .department {
             margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            header p {
+                font-size: 1em;
+            }
+            
+            .nav-item {
+                font-size: 1em;
+            }
+            
+            .description {
+                width: 90%;
+                left: 5%;
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
